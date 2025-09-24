@@ -1,0 +1,100 @@
+@EducaDevHostAddress = http://localhost:5056
+@CourseId = 1
+@ReviewId = 1
+
+
+### GET lista de cursos
+GET {{EducaDevHostAddress}}/api/courses
+Accept: application/json
+
+
+### GET curso por ID
+GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+Accept: application/json
+
+
+### POST criar curso
+POST {{EducaDevHostAddress}}/api/courses
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "nomeCurso": "Curso de ASP.NET Core",
+  "instrutor": "Luis Felipe",
+  "valor": 299.90,
+  "descricaoDetalhada": "Curso prático de ASP.NET Core com integração ao EF Core para construir aplicações web e APIs REST. Indicado a desenvolvedores iniciantes a intermediários que desejam criar backends em .NET. Cobre configuração do projeto, criação de endpoints REST, modelagem e persistência de dados com EF Core (CRUD, migrations) e boas práticas. Ao final, o aluno implementa uma API funcional com acesso a banco de dados.",
+  "resumo": null,
+  "imagemBytes": null
+}
+
+
+### PUT atualizar curso
+PUT {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+Content-Type: application/json
+Accept: application/json
+
+
+{
+ "id": {{CourseId}},
+ "nomeCurso": "Curso de ASP.NET Core Atualizado",
+ "instrutor": "Luis Felipe",
+ "valor": 349.90,
+ "descricaoDetalhada": "urso prático de ASP.NET Core com integração ao EF Core para construir aplicações web e APIs REST. Indicado a desenvolvedores iniciantes a intermediários que desejam criar backends em .NET. Cobre configuração do projeto, criação de endpoints REST, modelagem e persistência de dados com EF Core (CRUD, migrations) e boas práticas. Ao final, o aluno implementa uma API funcional com acesso a banco de dados.",
+ "resumo": null,
+ "imagemBytes": null
+}
+
+
+### DELETE curso
+DELETE {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+
+
+### POST upload imagem para curso
+POST {{EducaDevHostAddress}}/api/courses/{{CourseId}}/image
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="imagem.jpg"
+Content-Type: image/jpeg
+
+
+< ./imagem.jpg
+--WebAppBoundary--
+
+
+### GET lista de reviews de um curso
+GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews
+Accept: application/json
+
+
+### GET review por ID
+GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
+Accept: application/json
+
+
+### POST criar review
+POST {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews
+Content-Type: application/json
+Accept: application/json
+
+
+{
+  "nota": 4.5,
+  "descricao": "Curso excelente, muito bem explicado!"
+}
+
+
+### DELETE review
+DELETE {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
+
+
+### PATCH aprovar review
+PATCH {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/approve
+Accept: application/json
+
+
+### PATCH rejeitar review
+PATCH {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/reject?reason=profanity
+Accept: application/json
