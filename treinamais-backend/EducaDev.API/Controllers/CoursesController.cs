@@ -2,6 +2,7 @@
 using EducaDev.API.Application.Services.Interfaces;
 using EducaDev.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EducaDev.API.Controllers
 {
@@ -40,6 +41,7 @@ namespace EducaDev.API.Controllers
 
         // POST: api/courses
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<CourseResultDto>> Create(AddOrUpdateCourseModel input)
         {
             var result = await _courseApplicationService.CreateCourseAsync(input);
@@ -51,6 +53,7 @@ namespace EducaDev.API.Controllers
 
         // PUT: api/courses/5
         [HttpPut("{id:int}")]
+        [Authorize]
         public async Task<ActionResult<CourseResultDto>> Update(int id, [FromBody] AddOrUpdateCourseModel input)
         {
             var result = await _courseApplicationService.UpdateCourseAsync(id, input);

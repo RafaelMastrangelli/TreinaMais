@@ -2,6 +2,7 @@
 using EducaDev.API.Application.Services.Interfaces;
 using EducaDev.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EducaDev.API.Controllers
 {
@@ -40,6 +41,7 @@ namespace EducaDev.API.Controllers
 
         // POST: api/courses/{courseId}/reviews
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ReviewResultDto>> Create(int courseId, [FromBody] AddReviewModel input)
         {
             var result = await _reviewApplicationService.CreateReviewAsync(courseId, input);
@@ -52,6 +54,7 @@ namespace EducaDev.API.Controllers
 
         // DELETE: api/courses/{courseId}/reviews/{id}
         [HttpDelete("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int courseId, int id)
         {
             var result = await _reviewApplicationService.DeleteReviewAsync(courseId, id);

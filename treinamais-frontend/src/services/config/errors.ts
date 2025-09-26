@@ -20,6 +20,7 @@ export function toApiError(err: unknown): ApiError {
       e.response?.data
     );
   }
+  if (err instanceof ApiError) return err; // Evita recursão infinita
   if (err instanceof Error) return new ApiError(err.message);
   return new ApiError("Erro desconhecido");
 }

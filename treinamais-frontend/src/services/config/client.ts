@@ -12,6 +12,12 @@ const api: AxiosInstance = axios.create({
 });
 
 api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("auth_token");
+  if (token) {
+    const headers = AxiosHeaders.from(config.headers);
+    headers.set("Authorization", `Bearer ${token}`);
+    config.headers = headers;
+  }
   const data = config.data as any;
   const isPlainObject = data && typeof data === "object" && !("append" in data) && !(data instanceof Blob);
   if (isPlainObject) {
@@ -22,4 +28,15 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+api.interceptors.response.use(
+  (resp) => resp,
+  (error) => {
+    if (error?.response?.status === 401) {
+      localStorage.removeItem("auth_token");
+      // Optional: redirect hint (actual redirect handled in app routes)
+    }
+    return Promise.reject(error);
+  }
+);
 export default api;

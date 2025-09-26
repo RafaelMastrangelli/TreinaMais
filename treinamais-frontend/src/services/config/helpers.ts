@@ -1,6 +1,16 @@
 export async function fileToBase64Bytes(file: File | Blob): Promise<string> {
   const ab = await file.arrayBuffer();
-  const binary = String.fromCharCode(...new Uint8Array(ab));
+  const uint8Array = new Uint8Array(ab);
+  
+  // Convert Uint8Array to binary string in chunks to avoid stack overflow
+  let binary = '';
+  const chunkSize = 8192; // Process in 8KB chunks
+  
+  for (let i = 0; i < uint8Array.length; i += chunkSize) {
+    const chunk = uint8Array.slice(i, i + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  
   const base64 = typeof btoa !== "undefined"
     ? btoa(binary)
     : Buffer.from(binary, "binary").toString("base64");

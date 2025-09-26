@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "API (.NET) – Launch",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build-api",
+        "program": "${workspaceFolder}/treinamais-backend/EducaDev.API/bin/Debug/${input:targetFramework}/EducaDev.API.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/treinamais-backend/EducaDev.API",
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "ASPNETCORE_URLS": "http://localhost:5056"
+        },
+        "console": "integratedTerminal",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+          "uriFormat": "%s/swagger",
+          "action": "openExternally"
+        }
+      },
+      {
+        "name": "API (.NET) – Attach",
+        "type": "coreclr",
+        "request": "attach"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "targetFramework",
+        "type": "pickString",
+        "description": "Selecione o Target Framework do projeto",
+        "options": [ "net9.0", "net8.0", "net7.0" ],
+        "default": "net9.0"
+      }
+    ]
+  }
+  

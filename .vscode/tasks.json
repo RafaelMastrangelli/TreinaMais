@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build-api",
+        "type": "process",
+        "command": "dotnet",
+        "args": [
+          "build",
+          "${workspaceFolder}/treinamais-backend/EducaDev.API/EducaDev.API.csproj",
+          "/property:GenerateFullPaths=true",
+          "/consoleloggerparameters:NoSummary"
+        ],
+        "problemMatcher": "$msCompile",
+        "group": "build"
+      },
+      {
+        "label": "watch-api",
+        "type": "shell",
+        "command": "dotnet",
+        "args": [
+          "watch",
+          "run",
+          "--project",
+          "${workspaceFolder}/treinamais-backend/EducaDev.API/EducaDev.API.csproj",
+          "--urls",
+          "http://localhost:5056"
+        ],
+        "problemMatcher": "$msCompile",
+        "isBackground": true
+      }
+    ]
+  }
+  

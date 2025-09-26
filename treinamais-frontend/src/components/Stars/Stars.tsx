@@ -61,7 +61,11 @@ const Stars: React.FC<StarsProps> = ({
     return items;
   }
 
-  return renderStars(rating).map((typeStart) => renderSVGStar(typeStart))
+  return renderStars(rating).map((typeStart, index) => (
+    <span key={index}>
+      {renderSVGStar(typeStart)}
+    </span>
+  ))
 }
 
 export default Stars

@@ -12,6 +12,7 @@ const RegisterCourse: React.FC = () => {
 
   const handleSubmit = async (data: any) => {
     try {
+      debugger;
       setLoading(true);
       setError(null);
       
@@ -29,6 +30,8 @@ const RegisterCourse: React.FC = () => {
       // Redirect to course list after successful creation
       navigate('/');
     } catch (err) {
+      debugger;
+
       setError('Erro ao cadastrar curso. Tente novamente.');
       console.error('Error creating course:', err);
     } finally {
