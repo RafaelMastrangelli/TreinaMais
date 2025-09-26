@@ -155,20 +155,11 @@ Configure as chaves de API nos arquivos de configuração:
 - Status de moderação
 - Timestamps
 
-## 🚀 Próximos Passos
 
-- [ ] Implementação de autenticação e autorização
-- [ ] Sistema de usuários e perfis
-- [ ] Dashboard administrativo
-- [ ] Relatórios e analytics
-- [ ] Sistema de notificações
-- [ ] Integração com pagamentos
-- [ ] Testes automatizados
 
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
----
+**Desenvolvido usando .NET 9, React 19 e Inteligência Artificial**
 
-**Desenvolvido com ❤️ usando .NET 9, React 19 e Inteligência Artificial**
