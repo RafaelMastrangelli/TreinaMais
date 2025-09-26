@@ -240,52 +240,6 @@ npm run dev
 - **Estilos Personalizados**: Aplicação de estilos específicos
 - **Dimensões**: 1472x832 pixels por padrão
 
-## 📊 Estrutura de Dados
-
-### Course (Curso)
-```csharp
-public class Course
-{
-    public int Id { get; set; }
-    public string NomeCurso { get; set; }
-    public string Instrutor { get; set; }
-    public decimal Valor { get; set; }
-    public string DescricaoDetalhada { get; set; }
-    public string? Resumo { get; set; }              // 🤖 Gerado por IA
-    public byte[]? ImagemBytes { get; set; }         // 🖼️ Imagem moderada
-    public string? CoverUrl { get; set; }            // 🎨 URL da capa
-    public DateTime CreatedAtUtc { get; set; }
-    public DateTime? UpdatedAtUtc { get; set; }
-    public ICollection<Review> Reviews { get; set; }
-}
-```
-
-### Review (Avaliação)
-```csharp
-public class Review
-{
-    public int Id { get; set; }
-    public int CourseId { get; set; }
-    public double Nota { get; set; }
-    public string Descricao { get; set; }
-    public string? Sentimento { get; set; }          // "positive", "neutral", "negative"
-    public double? SentimentScore { get; set; }     // -1 a +1
-    public string? ModerationLabel { get; set; }    // "clean", "profanity", etc.
-    public ReviewStatus Status { get; set; }         // Pending, Approved, Rejected
-    public DateTime CreatedAtUtc { get; set; }
-    public DateTime? ModeratedAtUtc { get; set; }
-}
-```
-
-### ReviewStatus (Enum)
-```csharp
-public enum ReviewStatus
-{
-    Pending = 0,    // ⏳ Aguardando moderação
-    Approved = 1,   // ✅ Aprovado
-    Rejected = 2    // ❌ Rejeitado
-}
-```
 
 ## 🎨 Interface e UX
 
@@ -360,18 +314,7 @@ npm run test:watch           # Testes em modo watch
 npm run lint                  # Linting do código
 ```
 
-## 🎯 Próximos Passos
 
-- [ ] 🗄️ Implementar banco de dados persistente (SQL Server/PostgreSQL)
-- [ ] 👥 Adicionar sistema de usuários completo
-- [ ] 🔔 Implementar notificações em tempo real
-- [ ] 🧪 Adicionar testes automatizados
-- [ ] ⚡ Implementar cache para melhor performance
-- [ ] 📊 Adicionar métricas e analytics
-- [ ] 💳 Implementar sistema de pagamentos
-- [ ] 🔍 Adicionar funcionalidades de busca avançada
-- [ ] 🌐 Implementar internacionalização (i18n)
-- [ ] 📱 Desenvolver aplicativo mobile
 
 ## 📄 Licença
 
@@ -380,7 +323,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 ---
 
 <div align="center">
-  <strong>Desenvolvido com ❤️ usando .NET 9, React 19 e Inteligência Artificial</strong>
+  <strong>Desenvolvido com .NET 9, React 19 e Inteligência Artificial</strong>
   
   [![Made with .NET](https://img.shields.io/badge/Made%20with-.NET-purple.svg)](https://dotnet.microsoft.com/)
   [![Made with React](https://img.shields.io/badge/Made%20with-React-blue.svg)](https://reactjs.org/)
