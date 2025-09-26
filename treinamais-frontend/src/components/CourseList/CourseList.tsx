@@ -11,7 +11,7 @@ const CoursesList: React.FC<CourseProps> = ({ courses }) => {
 
   return (
     <Layout>
-      <h1 className="text-4xl font-extrabold text-center text-orange-500 mt-12 mb-12">Cursos Populares</h1>
+      <h1 className="text-4xl font-extrabold text-center text-blue-500 mt-12 mb-12">Cursos Populares</h1>
       <div className="mb-12">
       <Tabs
         items={[
@@ -51,20 +51,20 @@ const CoursesList: React.FC<CourseProps> = ({ courses }) => {
                 </div>
               </div>
             </div>
-            <div className="p-6 pt-8 space-y-4 bg-gradient-to-b from-white to-purple-50/40">
+            <div className="p-6 pt-8 space-y-4 bg-gradient-to-b from-white to-blue-50/40">
               <div className="text-[11px] text-gray-400">
                 {course.createdAtUtc ? new Date(course.createdAtUtc).toLocaleDateString('pt-BR') : 'Data não disponível'}
               </div>
-              <h2 className="text-xl font-extrabold leading-snug text-[#5B2DD1]">
+              <h2 className="text-xl font-extrabold leading-snug text-blue-600">
                 {course.nomeCurso}
               </h2>
               <p className="text-sm text-gray-600">{course.resumo}</p>
               <div className="flex items-center justify-between pt-1">
                 <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-bold text-orange-500">R${course.valor}</span>
+                  <span className="text-2xl font-bold text-blue-500">R${course.valor}</span>
                 </div>
                 <button 
-                  className="px-5 py-2 rounded-md bg-[#5B2DD1] text-white text-sm font-medium shadow-sm hover:bg-[#4B1FAF]"
+                  className="px-5 py-2 rounded-md bg-blue-600 text-white text-sm font-medium shadow-sm hover:bg-blue-700"
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/curso/${course.id}`);

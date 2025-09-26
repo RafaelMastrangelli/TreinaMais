@@ -27,12 +27,9 @@ const Login: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center p-4 relative"
+      className="min-h-screen flex items-center justify-center p-8 relative background-optimized"
       style={{
-        backgroundImage: 'url(/treinemais.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundImage: 'url(/treinemais.png)'
       }}
     >
       {/* Overlay escuro para melhorar legibilidade */}
@@ -41,15 +38,15 @@ const Login: React.FC = () => {
       <div className="w-full max-w-md relative z-10">
         {/* Logo/Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Treine+</h1>
+          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Treina+</h1>
           <p className="text-white text-xl font-bold drop-shadow-2xl bg-blue-700 bg-opacity-80 px-4 py-2 rounded-lg inline-block">
             Sua plataforma de aprendizado
           </p>
         </div>
 
         {/* Login Form */}
-        <form onSubmit={onSubmit} className="bg-white shadow-xl rounded-2xl px-8 pt-8 pb-8 border border-purple-200">
-          <h2 className="text-2xl font-semibold mb-6 text-center text-purple-800">Entrar</h2>
+        <form onSubmit={onSubmit} className="bg-white shadow-xl rounded-2xl px-8 pt-8 pb-8 border border-blue-200">
+          <h2 className="text-2xl font-semibold mb-6 text-center text-blue-800">Entrar</h2>
           
           {error && (
             <div className="mb-4 bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-3">
@@ -58,31 +55,31 @@ const Login: React.FC = () => {
           )}
           
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2 text-purple-700">Email</label>
+            <label className="block text-sm font-medium mb-2 text-blue-700">Email</label>
             <input 
               type="email"
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
-              className="w-full border-2 border-purple-200 rounded-lg px-4 py-3 focus:border-purple-500 focus:outline-none transition-colors" 
+              className="w-full border-2 border-blue-200 rounded-lg px-4 py-3 focus:border-blue-500 focus:outline-none transition-colors" 
               placeholder="Digite seu email"
               required
             />
           </div>
           
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2 text-purple-700">Senha</label>
+            <label className="block text-sm font-medium mb-2 text-blue-700">Senha</label>
             <div className="relative">
               <input 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 type={showPassword ? "text" : "password"} 
-                className="w-full border-2 border-purple-200 rounded-lg px-4 py-3 pr-12 focus:border-purple-500 focus:outline-none transition-colors" 
+                className="w-full border-2 border-blue-200 rounded-lg px-4 py-3 pr-12 focus:border-blue-500 focus:outline-none transition-colors" 
                 placeholder="Digite sua senha"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-500 hover:text-purple-700 focus:outline-none"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 hover:text-blue-700 focus:outline-none"
               >
                 {showPassword ? (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +98,7 @@ const Login: React.FC = () => {
           <button 
             type="submit" 
             disabled={loading} 
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg py-3 font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg py-3 font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
@@ -109,7 +106,7 @@ const Login: React.FC = () => {
 
         {/* Footer */}
         <div className="text-center mt-6">
-          <p className="text-purple-200 text-sm drop-shadow-md">
+          <p className="text-blue-200 text-sm drop-shadow-md">
             Demo: usuário <span className="font-semibold text-white">admin</span> / senha <span className="font-semibold text-white">admin</span>
           </p>
         </div>

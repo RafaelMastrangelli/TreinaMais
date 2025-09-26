@@ -90,7 +90,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
 
   return (
     <Layout>
-      <h1 className="text-4xl font-extrabold text-center text-orange-500 mt-12 mb-12">Dados do produto</h1>
+      <h1 className="text-4xl font-extrabold text-center text-blue-500 mt-12 mb-12">Dados do produto</h1>
 
       <form
         onSubmit={internalSubmit}
@@ -141,7 +141,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
                       d="M7 16a4 4 0 01.88-7.906A5 5 0 0119 9a3 3 0 01.176 5.995M12 12v9m0-9l-3 3m3-3l3 3"
                     />
                   </svg>
-                  <p className="text-violet-600 font-medium">
+                  <p className="text-blue-600 font-medium">
                     Clique para adicionar uma imagem (opcional)
                   </p>
                   <p className="text-xs text-slate-500 mt-1">
@@ -166,7 +166,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
           {image ? (
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 w-full md:w-[320px]">
               <div className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-lg bg-violet-600 text-white flex items-center justify-center shrink-0">
+                <div className="h-9 w-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0">
                   <svg
                     viewBox="0 0 24 24"
                     className="h-5 w-5"
@@ -210,7 +210,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
             <input
               {...register("name", { required: "Informe o nome do curso" })}
               placeholder="Nome"
-              className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.name && (
               <p className="text-sm text-rose-600 mt-1">{errors.name.message}</p>
@@ -226,7 +226,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
               <input
                 {...register("instructor", { required: "Informe o instrutor" })}
                 placeholder="Instrutor"
-                className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.instructor && (
                 <p className="text-sm text-rose-600 mt-1">
@@ -259,7 +259,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
                     }}
                     onBlur={() => setPriceDisplay(centsToDisplay(watch("priceCents")))}
                     placeholder="R$ 00,00"
-                    className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-violet-500"
+                    className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 )}
               />
@@ -280,7 +280,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
               {...register("description", { required: "Descreva o curso" })}
               placeholder="Descrição detalhada"
               rows={6}
-              className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.description && (
               <p className="text-sm text-rose-600 mt-1">
@@ -302,7 +302,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
             </button>
             <button
               type="button"
-              className="px-5 py-2 rounded-md border border-[#5B2DD1] text-[#5B2DD1] text-sm font-medium shadow-sm hover:bg-[#4B1FAF] hover:text-white"
+              className="px-5 py-2 rounded-md border border-blue-600 text-blue-600 text-sm font-medium shadow-sm hover:bg-blue-600 hover:text-white"
               onClick={() => {
                 setValue("name", "");
                 setValue("instructor", "");
@@ -316,7 +316,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-md bg-[#5B2DD1] text-white text-sm font-medium shadow-sm hover:bg-[#4B1FAF]"
+              className="px-5 py-2 rounded-md bg-blue-600 text-white text-sm font-medium shadow-sm hover:bg-blue-700"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Salvando..." : "Salvar curso"}

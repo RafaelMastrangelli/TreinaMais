@@ -19,8 +19,8 @@ const CourseListPage: React.FC = () => {
   return (
     <>
       <Header
-        title={<h1 className='text-5xl font-semibold leading-snug w-150 mb-8'>Aprimore suas habilidades com os cursos online da Treine +.</h1>}
-        icon={<BackgroundWaveIcon />}
+        title={<h1 className='text-5xl font-semibold leading-snug w-150 mb-8'>Aprimore suas habilidades com os cursos online da Treina+.</h1>}
+        icon={""}
       >
         <div className="flex flex-col items-start gap-4">
           <SocialProof
@@ -35,7 +35,7 @@ const CourseListPage: React.FC = () => {
           />
           <button 
             onClick={() => navigate('/cadastro')}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-lg shadow-lg transition-colors duration-200"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-2 rounded-lg shadow-lg transition-colors duration-200"
           >
             + Adicionar Novo Curso
           </button>

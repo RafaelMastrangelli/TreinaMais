@@ -7,9 +7,9 @@ namespace EducaDev.API.Infrastructure.Persistence.Repositories
 {
     public class ReviewRepository : IReviewRepository
     {
-        private readonly EducaDevContext _context;
+        private readonly TreinaMaisContext _context;
 
-        public ReviewRepository(EducaDevContext context)
+        public ReviewRepository(TreinaMaisContext context)
         {
             _context = context;
         }

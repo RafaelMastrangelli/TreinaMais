@@ -1,22 +1,35 @@
-@EducaDevHostAddress = http://localhost:5056
+@TreinaMaisHostAddress = http://localhost:5056
 @CourseId = 1
 @ReviewId = 1
+@Token = your_jwt_token_here
+
+
+### POST login
+POST {{TreinaMaisHostAddress}}/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "usuario@exemplo.com",
+  "password": "senha123"
+}
 
 
 ### GET lista de cursos
-GET {{EducaDevHostAddress}}/api/courses
+GET {{TreinaMaisHostAddress}}/api/courses
 Accept: application/json
 
 
 ### GET curso por ID
-GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+GET {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}
 Accept: application/json
 
 
 ### POST criar curso
-POST {{EducaDevHostAddress}}/api/courses
+POST {{TreinaMaisHostAddress}}/api/courses
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer {{Token}}
 
 
 {
@@ -30,9 +43,10 @@ Accept: application/json
 
 
 ### PUT atualizar curso
-PUT {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+PUT {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer {{Token}}
 
 
 {
@@ -40,18 +54,18 @@ Accept: application/json
  "nomeCurso": "Curso de ASP.NET Core Atualizado",
  "instrutor": "Luis Felipe",
  "valor": 349.90,
- "descricaoDetalhada": "urso prático de ASP.NET Core com integração ao EF Core para construir aplicações web e APIs REST. Indicado a desenvolvedores iniciantes a intermediários que desejam criar backends em .NET. Cobre configuração do projeto, criação de endpoints REST, modelagem e persistência de dados com EF Core (CRUD, migrations) e boas práticas. Ao final, o aluno implementa uma API funcional com acesso a banco de dados.",
+ "descricaoDetalhada": "Curso prático de ASP.NET Core com integração ao EF Core para construir aplicações web e APIs REST. Indicado a desenvolvedores iniciantes a intermediários que desejam criar backends em .NET. Cobre configuração do projeto, criação de endpoints REST, modelagem e persistência de dados com EF Core (CRUD, migrations) e boas práticas. Ao final, o aluno implementa uma API funcional com acesso a banco de dados.",
  "resumo": null,
  "imagemBytes": null
 }
 
 
 ### DELETE curso
-DELETE {{EducaDevHostAddress}}/api/courses/{{CourseId}}
+DELETE {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}
 
 
 ### POST upload imagem para curso
-POST {{EducaDevHostAddress}}/api/courses/{{CourseId}}/image
+POST {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/image
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -65,19 +79,20 @@ Content-Type: image/jpeg
 
 
 ### GET lista de reviews de um curso
-GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews
+GET {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews
 Accept: application/json
 
 
 ### GET review por ID
-GET {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
+GET {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
 Accept: application/json
 
 
 ### POST criar review
-POST {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews
+POST {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer {{Token}}
 
 
 {
@@ -87,14 +102,15 @@ Accept: application/json
 
 
 ### DELETE review
-DELETE {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
+DELETE {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}
+Authorization: Bearer {{Token}}
 
 
 ### PATCH aprovar review
-PATCH {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/approve
+PATCH {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/approve
 Accept: application/json
 
 
 ### PATCH rejeitar review
-PATCH {{EducaDevHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/reject?reason=profanity
+PATCH {{TreinaMaisHostAddress}}/api/courses/{{CourseId}}/reviews/{{ReviewId}}/reject?reason=profanity
 Accept: application/json

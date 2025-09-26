@@ -8,7 +8,7 @@ const Header: React.FC<HeaderProps> = ({ title, className = '', icon, children }
   return (
     <div
       className={
-        `relative w-full rounded-b-2xl bg-[#5B2DD1] text-white pt-32 pb-24 pl-12 overflow-hidden ${className}`
+        `relative w-full rounded-b-2xl bg-gradient-to-r from-blue-600 to-blue-700 text-white pt-32 pb-24 pl-12 overflow-hidden ${className}`
       }
     >
       {typeof title !== 'string' ? title : <h1 className={["text-5xl font-semibold leading-snug max-w-[70%]", textSpacing].join(" ")}>{title}</h1>}

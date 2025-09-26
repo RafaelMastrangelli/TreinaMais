@@ -10,7 +10,7 @@ type CourseDetailsProps = {
 const CourseDetails: React.FC<CourseDetailsProps> = ({ course, reviews }) => {
   return (
     <Layout>
-      <h1 className="text-4xl font-extrabold text-center text-orange-500 mt-12 mb-12">Sobre o curso</h1>
+      <h1 className="text-4xl font-extrabold text-center text-blue-500 mt-12 mb-12">Sobre o curso</h1>
 
       <p className="text-gray-700 text-center text-base/8 mb-8">
         {course.descricaoDetalhada}
@@ -30,7 +30,7 @@ const CourseDetails: React.FC<CourseDetailsProps> = ({ course, reviews }) => {
 
       <section>
         <h2 className="text-xl font-semibold"></h2>
-        <h1 className="text-4xl font-extrabold text-center text-orange-500 mt-12 mb-12">Reviews</h1>
+        <h1 className="text-4xl font-extrabold text-center text-blue-500 mt-12 mb-12">Reviews</h1>
 
         <div className="grid md:grid-cols-2 gap-4">
           {reviews.length > 0 ? (

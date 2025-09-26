@@ -24,8 +24,8 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddDbContext<EducaDevContext>(opt =>
-    opt.UseInMemoryDatabase("educadev-db"));
+builder.Services.AddDbContext<TreinaMaisContext>(opt =>
+    opt.UseInMemoryDatabase("treinamais-db"));
 
 // Configure AI integrations
 builder.Services.Configure<OpenAiConfigurations>(

@@ -6,9 +6,9 @@ namespace EducaDev.API.Infrastructure.Persistence.Repositories
 {
     public class CourseRepository : ICourseRepository
     {
-        private readonly EducaDevContext _context;
+        private readonly TreinaMaisContext _context;
 
-        public CourseRepository(EducaDevContext context)
+        public CourseRepository(TreinaMaisContext context)
         {
             _context = context;
         }

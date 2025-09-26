@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EducaDev.API.Infrastructure.Persistence
 {
-    public class EducaDevContext : DbContext
+    public class TreinaMaisContext : DbContext
     {
-        public EducaDevContext(DbContextOptions<EducaDevContext> options) : base(options) { }
+        public TreinaMaisContext(DbContextOptions<TreinaMaisContext> options) : base(options) { }
 
         public DbSet<Course> Courses { get; set; }
         public DbSet<Review> Reviews { get; set; }

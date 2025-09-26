@@ -76,7 +76,7 @@ const CourseFeedbackForm: React.FC<CourseFeedbackFormProps> = ({ courses, loadin
 
   return (
     <Layout>
-      <h1 className="text-4xl font-extrabold text-center text-orange-500 mt-12 mb-12">Review do produto</h1>
+      <h1 className="text-4xl font-extrabold text-center text-blue-500 mt-12 mb-12">Review do produto</h1>
       {selectedCourse && (
         <div className='mb-12'>
           <CourseResume
@@ -166,14 +166,14 @@ const CourseFeedbackForm: React.FC<CourseFeedbackFormProps> = ({ courses, loadin
           <button 
             type="button" 
             onClick={() => navigate('/')}
-            className="px-5 py-2 rounded-md border border-[#5B2DD1] text-[#5B2DD1] text-sm font-medium shadow-sm hover:bg-[#4B1FAF] hover:text-white"
+            className="px-5 py-2 rounded-md border border-blue-600 text-blue-600 text-sm font-medium shadow-sm hover:bg-blue-600 hover:text-white"
           >
             Voltar
           </button>
           <button 
             type="submit" 
             disabled={!selectedCourse || submitting}
-            className="px-5 py-2 rounded-md bg-[#5B2DD1] text-white text-sm font-medium shadow-sm hover:bg-[#4B1FAF] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-5 py-2 rounded-md bg-blue-600 text-white text-sm font-medium shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {submitting ? 'Enviando...' : 'Salvar'}
           </button>

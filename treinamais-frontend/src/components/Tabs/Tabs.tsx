@@ -14,7 +14,7 @@ const Tabs: React.FC<TabsProps> = ({ items, activeId, onClick, className = '' })
             className={[
               'px-5 py-2.5 rounded-lg text-sm font-medium transition-colors',
               active
-                ? 'bg-[#5B2DD1] text-white shadow-md'
+                ? 'bg-blue-600 text-white shadow-md'
                 : 'bg-white text-gray-700 border border-gray-300 hover:border-gray-400',
             ].join(' ')}
           >
