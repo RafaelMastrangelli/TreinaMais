@@ -301,17 +301,12 @@ npm run dev
 ```bash
 dotnet run                    # Executar a API
 dotnet build                  # Compilar o projeto
-dotnet test                   # Executar testes
 ```
 
 ### Frontend
 ```bash
 npm run dev                   # Servidor de desenvolvimento
 npm run build                 # Build para produção
-npm run preview              # Preview do build
-npm run test                  # Executar testes
-npm run test:watch           # Testes em modo watch
-npm run lint                  # Linting do código
 ```
 
 
