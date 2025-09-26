@@ -32,9 +32,13 @@ const CoursesList: React.FC<CourseProps> = ({ courses }) => {
           >
             <div className="relative">
               <img 
-                src={course.coverUrl || course.imagemUrl || "/default-course-cover.jpg"} 
+                src={
+                  course.coverUrl
+                    || (course.imagemBytes ? `data:image/jpeg;base64,${course.imagemBytes}` : "/student-avatar.png")
+                } 
                 alt={course.nomeCurso}
                 className="h-40 w-full object-cover"
+                onError={(e) => { e.currentTarget.src = "/student-avatar.png"; }}
               />
               <div className="absolute left-4 -bottom-4">
                 <div className="flex items-center gap-2 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 shadow-md">

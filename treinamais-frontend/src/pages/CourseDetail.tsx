@@ -80,6 +80,12 @@ const CourseDetailPage: React.FC = () => {
             <h1 className="text-3xl font-bold text-white">{formatCurrency(course.valor)}</h1>
           </div>
           <div className="flex gap-3">
+            <button 
+              onClick={() => navigate('/')}
+              className="bg-gray-200 text-gray-800 font-bold px-6 py-2 rounded hover:bg-gray-300"
+            >
+              Voltar ao Início
+            </button>
             <button className="bg-orange-500 text-white font-bold px-6 py-2 rounded hover:bg-orange-600">
               Comprar Agora
             </button>

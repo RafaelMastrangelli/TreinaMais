@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Layout from "../Layout";
 import { centsToDisplay } from "../../utils/currency";
@@ -44,6 +45,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
   isSubmitting,
   className = "",
 }) => {
+  const navigate = useNavigate();
   const {
     register,
     control,
@@ -95,7 +97,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
         className={`w-full max-w-5xl mx-auto ${className}`}
       >
         {/* Linha do uploader + chip do arquivo */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr,auto] gap-6 items-start">
+        <div >
           {/* Dropzone */}
           <Controller
             control={control}
@@ -116,10 +118,10 @@ const CourseForm: React.FC<CourseFormProps> = ({
                 }}
                 onClick={() => inputFileRef.current?.click()}
                 className={[
-                  "rounded-xl border-2 border-dashed p-8 cursor-pointer",
+                  "rounded-lg border-2 border-dashed p-4 md:p-8 cursor-pointer",
                   "bg-white hover:bg-slate-50 transition-colors",
-                  dragging ? "border-violet-400" : "border-slate-300",
-                  "min-h-[180px] flex items-center justify-center text-center",
+                  dragging ? "border-violet-400" : "border-slate-200",
+                  "h-24 md:h-40 flex items-center justify-center text-center w-full",
                 ].join(" ")}
                 role="button"
                 aria-label="Clique ou arraste para adicionar uma imagem"
@@ -162,7 +164,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
 
           {/* Chip do arquivo selecionado */}
           {image ? (
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 w-full md:w-[320px]">
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 w-full md:w-[320px]">
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 rounded-lg bg-violet-600 text-white flex items-center justify-center shrink-0">
                   <svg
@@ -192,7 +194,7 @@ const CourseForm: React.FC<CourseFormProps> = ({
           ) : (
             <div className="w-full md:w-[320px]" />
           )}
-        </div>
+        </div> 
 
         {errors.image && (
           <p className="text-sm text-rose-600 mt-2">{String(errors.image.message)}</p>
@@ -291,6 +293,13 @@ const CourseForm: React.FC<CourseFormProps> = ({
         {/* Ações */}
         <div className="mt-8 w-full flex items-center justify-end gap-3">
           <div className="flex w-full justify-between gap-3">
+            <button
+              type="button"
+              className="px-5 py-2 rounded-md bg-gray-200 text-gray-800 text-sm font-medium shadow-sm hover:bg-gray-300"
+              onClick={() => navigate("/")}
+            >
+              Voltar ao Início
+            </button>
             <button
               type="button"
               className="px-5 py-2 rounded-md border border-[#5B2DD1] text-[#5B2DD1] text-sm font-medium shadow-sm hover:bg-[#4B1FAF] hover:text-white"

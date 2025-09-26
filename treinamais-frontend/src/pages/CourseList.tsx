@@ -19,7 +19,7 @@ const CourseListPage: React.FC = () => {
   return (
     <>
       <Header
-        title={<h1 className='text-5xl font-semibold leading-snug w-150 mb-8'>Aprimore suas habilidades com os cursos online da Next Wave.</h1>}
+        title={<h1 className='text-5xl font-semibold leading-snug w-150 mb-8'>Aprimore suas habilidades com os cursos online da Treine +.</h1>}
         icon={<BackgroundWaveIcon />}
       >
         <div className="flex flex-col items-start gap-4">
