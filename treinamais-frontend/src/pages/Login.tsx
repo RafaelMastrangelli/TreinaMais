@@ -106,9 +106,9 @@ const Login: React.FC = () => {
 
         {/* Footer */}
         <div className="text-center mt-6">
-          <p className="text-blue-200 text-sm drop-shadow-md">
+          {/* <p className="text-blue-200 text-sm drop-shadow-md">
             Demo: usuário <span className="font-semibold text-white">admin</span> / senha <span className="font-semibold text-white">admin</span>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
