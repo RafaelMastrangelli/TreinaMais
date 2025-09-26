@@ -147,7 +147,6 @@ O **TreinaMais** é uma plataforma completa de cursos online que integra intelig
 - 🔄 Estados de loading e tratamento de erros
 - 🎭 Componentes reutilizáveis
 - 📊 Prova social com avaliações
-- 🌊 Design com ondas e gradientes
 
 ### 6. **Documentação da API** 📖
 - 📋 **Swagger UI**: Interface interativa para testar a API
@@ -161,8 +160,8 @@ O **TreinaMais** é uma plataforma completa de cursos online que integra intelig
 - .NET 9 SDK
 - Node.js 18+
 - Chaves de API:
-  - OpenAI API Key
-  - Leonardo.AI API Key
+- OpenAI API Key
+- Leonardo.AI API Key
 
 ### 1. Backend (API)
 ```bash
