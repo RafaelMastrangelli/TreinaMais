@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EducaDev.API.Controllers
 {
+    /// <summary>
+    /// Controller responsável pelo gerenciamento de avaliações de cursos
+    /// </summary>
     [ApiController]
     [Route("api/courses/{courseId:int}/[controller]")]
     public class ReviewsController : ControllerBase
@@ -17,8 +20,16 @@ namespace EducaDev.API.Controllers
             _reviewApplicationService = reviewApplicationService;
         }
 
-        // GET: api/courses/{courseId}/reviews
+        /// <summary>
+        /// Obtém todas as avaliações de um curso
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <returns>Lista de avaliações do curso</returns>
+        /// <response code="200">Lista de avaliações retornada com sucesso</response>
+        /// <response code="404">Curso não encontrado</response>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<ReviewResultDto>), 200)]
+        [ProducesResponseType(404)]
         public async Task<ActionResult<IEnumerable<ReviewResultDto>>> GetAll(int courseId)
         {
             var result = await _reviewApplicationService.GetReviewsByCourseAsync(courseId);
@@ -28,8 +39,17 @@ namespace EducaDev.API.Controllers
             return Ok(result.Data);
         }
 
-        // GET: api/courses/{courseId}/reviews/{id}
+        /// <summary>
+        /// Obtém uma avaliação específica por ID
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <param name="id">ID da avaliação</param>
+        /// <returns>Dados da avaliação</returns>
+        /// <response code="200">Avaliação encontrada</response>
+        /// <response code="404">Avaliação não encontrada</response>
         [HttpGet("{id:int}")]
+        [ProducesResponseType(typeof(ReviewResultDto), 200)]
+        [ProducesResponseType(404)]
         public async Task<ActionResult<ReviewResultDto>> GetById(int courseId, int id)
         {
             var result = await _reviewApplicationService.GetReviewByIdAsync(courseId, id);
@@ -39,9 +59,20 @@ namespace EducaDev.API.Controllers
             return Ok(result.Data);
         }
 
-        // POST: api/courses/{courseId}/reviews
+        /// <summary>
+        /// Cria uma nova avaliação para um curso
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <param name="input">Dados da avaliação</param>
+        /// <returns>Dados da avaliação criada</returns>
+        /// <response code="201">Avaliação criada com sucesso</response>
+        /// <response code="404">Curso não encontrado</response>
+        /// <response code="401">Não autorizado</response>
         [HttpPost]
         [Authorize]
+        [ProducesResponseType(typeof(ReviewResultDto), 201)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
         public async Task<ActionResult<ReviewResultDto>> Create(int courseId, [FromBody] AddReviewModel input)
         {
             var result = await _reviewApplicationService.CreateReviewAsync(courseId, input);
@@ -51,10 +82,20 @@ namespace EducaDev.API.Controllers
             return CreatedAtAction(nameof(GetById), new { courseId, id = result.Data!.Id }, result.Data);
         }
 
-
-        // DELETE: api/courses/{courseId}/reviews/{id}
+        /// <summary>
+        /// Remove uma avaliação
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <param name="id">ID da avaliação</param>
+        /// <returns>Sem conteúdo</returns>
+        /// <response code="204">Avaliação removida com sucesso</response>
+        /// <response code="404">Avaliação não encontrada</response>
+        /// <response code="401">Não autorizado</response>
         [HttpDelete("{id:int}")]
         [Authorize]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(401)]
         public async Task<IActionResult> Delete(int courseId, int id)
         {
             var result = await _reviewApplicationService.DeleteReviewAsync(courseId, id);
@@ -64,8 +105,17 @@ namespace EducaDev.API.Controllers
             return NoContent();
         }
 
-        // PATCH: api/courses/{courseId}/reviews/{id}/approve
+        /// <summary>
+        /// Aprova uma avaliação
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <param name="id">ID da avaliação</param>
+        /// <returns>Dados da avaliação aprovada</returns>
+        /// <response code="200">Avaliação aprovada com sucesso</response>
+        /// <response code="404">Avaliação não encontrada</response>
         [HttpPatch("{id:int}/approve")]
+        [ProducesResponseType(typeof(ReviewResultDto), 200)]
+        [ProducesResponseType(404)]
         public async Task<ActionResult<ReviewResultDto>> Approve(int courseId, int id)
         {
             var result = await _reviewApplicationService.ApproveReviewAsync(courseId, id);
@@ -75,8 +125,18 @@ namespace EducaDev.API.Controllers
             return Ok(result.Data);
         }
 
-        // PATCH: api/courses/{courseId}/reviews/{id}/reject
+        /// <summary>
+        /// Rejeita uma avaliação
+        /// </summary>
+        /// <param name="courseId">ID do curso</param>
+        /// <param name="id">ID da avaliação</param>
+        /// <param name="reason">Motivo da rejeição (opcional)</param>
+        /// <returns>Dados da avaliação rejeitada</returns>
+        /// <response code="200">Avaliação rejeitada com sucesso</response>
+        /// <response code="404">Avaliação não encontrada</response>
         [HttpPatch("{id:int}/reject")]
+        [ProducesResponseType(typeof(ReviewResultDto), 200)]
+        [ProducesResponseType(404)]
         public async Task<ActionResult<ReviewResultDto>> Reject(int courseId, int id, [FromQuery] string? reason = null)
         {
             var result = await _reviewApplicationService.RejectReviewAsync(courseId, id, reason);
